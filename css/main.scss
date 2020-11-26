@@ -28,6 +28,24 @@
 	font-weight: 800;
 	font-style: normal;
 }
+@keyframes mobile {
+	0% {
+		top: 0px;
+		left: 0px;
+	}
+	25% {
+		top: -20px;
+		left: -20px;
+	}
+	50% {
+		top: -40px;
+		left: 0px;
+	}
+	100% {
+		top: 0px;
+		left: 20px;
+	}
+}
 
 * {
 	padding: 0;
@@ -125,6 +143,31 @@ li {
 
 	background-color: rgba(17,17,17,0.7);
 	height: 1024px;
+	position: relative;
+	.header-link-left {
+		position: absolute;
+		top: 445px;
+		left: 200px;
+		background-image: url(../img/icon-left.png);
+		width: 40px;
+		height: 73px;
+		opacity: 0.5;
+		transition: .4s ease-out;
+	}
+	.header-link-right {
+		position: absolute;
+		opacity: 0.5;
+		top: 445px;
+		right: 200px;
+		background-image: url(../img/icon-right.png);
+		width: 40px;
+		height: 73px;
+		transition: .4s ease-out;
+	}
+	.header-link-right:hover, .header-link-left:hover {
+		
+		opacity: 1;
+	}
 	&-upper {
 		height: 134px;
 		display: flex;
@@ -175,35 +218,12 @@ li {
 		}
 	}
 	&-mid {
-		position: relative;
+
 		display: flex;
 		justify-content: flex-start;
 		flex-direction: column;
 		align-items: center;
-		.header-link-left {
-			position: absolute;
-			top: 110px;
-			left: -220px;
-			background-image: url(../img/icon-left.png);
-			width: 40px;
-			height: 73px;
-			opacity: 0.5;
-			transition: .4s ease-out;
-		}
-		.header-link-right {
-			opacity: 0.5;
-			top: 110px;
-			left: 1350px;
-			position: absolute;
-			background-image: url(../img/icon-right.png);
-			width: 40px;
-			height: 73px;
-			transition: .4s ease-out;
-		}
-		.header-link-right:hover, .header-link-left:hover {
-			
-			opacity: 1;
-		}
+
 		.header-title {
 			margin-bottom: 14px;
 			line-height: 1;
@@ -528,11 +548,11 @@ li {
 				width: 100%;
 				height: 237px;
 				visibility: hidden;
-				position: center center;
-				// transition: 11.4s ;
+				transition: .8s ;
 			}
 			.project-icons svg:first-child {
 				margin-right: 28px;
+				
 			}
 
 			.project-footer::before {
@@ -596,8 +616,15 @@ li {
 			svg:hover .project-icon {
 				fill: #c7b299;
 			}
+			&:hover svg {
+				opacity: 1;
+			}
+			svg {
+				opacity: 0;
+				transition: .4s;
+			}
 			.project-icon {
-				transition: 0.2s ease-out;
+				transition: .2s ease-out;
 			}
 		}
 		
@@ -682,8 +709,11 @@ li {
 	padding-top: 80px;
 	display: flex;
 	justify-content: center;
+	
 	&-img {
 		margin-right: 30px;
+		position: relative;
+		animation: mobile 2s linear infinite alternate;
 	}
 	.col-2 {
 
@@ -807,10 +837,12 @@ li {
 			transition: .4s ease-out;
 			.data {
 				// position: relative;
-				transition: .4s ease-out;
+				transition: 4.4s ;
 				position: absolute;
-				background-color: rgba(17,17,17,0.7);
 				
+				transition: .8s ;
+				height: 0;
+				width: 100%;
 				&-number {
 					position: absolute;
 					top: 20px;
@@ -905,8 +937,9 @@ li {
 				fill: #00bff3;
 			}
 			&:hover .data {
-				width: 100%;
+				// width: 100%;
 				height: 220px;
+				background-color: rgba(17,17,17,0.7);
 			}
 			&:hover .data-number {
 				background-color: #c7b299;
@@ -945,6 +978,7 @@ li {
 		fill: #c7b299;
 	}
 }
+
 .brands {
 	.container {
 		display: flex;
@@ -955,7 +989,7 @@ li {
 			transition: .4s;
 		}
 		.brands-img:hover {
-				transform:  rotate(360deg) scale(1.5) ;
+				transform:  rotate(360deg) scale(1.2) ;
 			}
 		
 	}
@@ -1155,5 +1189,18 @@ li {
 	}
 	.col-1 .copyright:hover {
 		color: #959595;
+	}
+}
+@media (min-width: 2100px) {
+	.header-link-left, .header-link-right  {
+		opacity: 0 !important;
+	}
+}
+@media (max-width: 1230px) {
+	.whatfor-photos img:nth-child(2){
+		left: -200px;
+	}
+	.whatfor-photos img:nth-child(3){
+		left: 200px;
 	}
 }
