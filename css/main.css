@@ -33,6 +33,44 @@
   font-style: normal;
 }
 
+@-webkit-keyframes mobile {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  25% {
+    top: -20px;
+    left: -20px;
+  }
+  50% {
+    top: -40px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: 20px;
+  }
+}
+
+@keyframes mobile {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  25% {
+    top: -20px;
+    left: -20px;
+  }
+  50% {
+    top: -40px;
+    left: 0px;
+  }
+  100% {
+    top: 0px;
+    left: 20px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -141,6 +179,35 @@ li {
   background-position: center;
   background-color: rgba(17, 17, 17, 0.7);
   height: 1024px;
+  position: relative;
+}
+
+.header .header-link-left {
+  position: absolute;
+  top: 445px;
+  left: 200px;
+  background-image: url(../img/icon-left.png);
+  width: 40px;
+  height: 73px;
+  opacity: 0.5;
+  -webkit-transition: .4s ease-out;
+  transition: .4s ease-out;
+}
+
+.header .header-link-right {
+  position: absolute;
+  opacity: 0.5;
+  top: 445px;
+  right: 200px;
+  background-image: url(../img/icon-right.png);
+  width: 40px;
+  height: 73px;
+  -webkit-transition: .4s ease-out;
+  transition: .4s ease-out;
+}
+
+.header .header-link-right:hover, .header .header-link-left:hover {
+  opacity: 1;
 }
 
 .header-upper {
@@ -207,7 +274,6 @@ li {
 }
 
 .header-mid {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,34 +287,6 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.header-mid .header-link-left {
-  position: absolute;
-  top: 110px;
-  left: -220px;
-  background-image: url(../img/icon-left.png);
-  width: 40px;
-  height: 73px;
-  opacity: 0.5;
-  -webkit-transition: .4s ease-out;
-  transition: .4s ease-out;
-}
-
-.header-mid .header-link-right {
-  opacity: 0.5;
-  top: 110px;
-  left: 1350px;
-  position: absolute;
-  background-image: url(../img/icon-right.png);
-  width: 40px;
-  height: 73px;
-  -webkit-transition: .4s ease-out;
-  transition: .4s ease-out;
-}
-
-.header-mid .header-link-right:hover, .header-mid .header-link-left:hover {
-  opacity: 1;
 }
 
 .header-mid .header-title {
@@ -623,7 +661,8 @@ li {
   width: 100%;
   height: 237px;
   visibility: hidden;
-  position: center center;
+  -webkit-transition: .8s;
+  transition: .8s;
 }
 
 .projects-list-item .project-icons svg:first-child {
@@ -702,9 +741,19 @@ li {
   fill: #c7b299;
 }
 
+.projects-list-item:hover svg {
+  opacity: 1;
+}
+
+.projects-list-item svg {
+  opacity: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
 .projects-list-item .project-icon {
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
 }
 
 .projects-btn {
@@ -809,6 +858,9 @@ li {
 
 .formobile-img {
   margin-right: 30px;
+  position: relative;
+  -webkit-animation: mobile 2s linear infinite alternate;
+          animation: mobile 2s linear infinite alternate;
 }
 
 .formobile-title {
@@ -958,10 +1010,13 @@ li {
 }
 
 .posts-wrapper .post .data {
-  -webkit-transition: .4s ease-out;
-  transition: .4s ease-out;
+  -webkit-transition: 4.4s;
+  transition: 4.4s;
   position: absolute;
-  background-color: rgba(17, 17, 17, 0.7);
+  -webkit-transition: .8s;
+  transition: .8s;
+  height: 0;
+  width: 100%;
 }
 
 .posts-wrapper .post .data-number {
@@ -1076,8 +1131,8 @@ li {
 }
 
 .posts-wrapper .post:hover .data {
-  width: 100%;
   height: 220px;
+  background-color: rgba(17, 17, 17, 0.7);
 }
 
 .posts-wrapper .post:hover .data-number {
@@ -1152,8 +1207,8 @@ li {
 }
 
 .brands .container .brands-img:hover {
-  -webkit-transform: rotate(360deg) scale(1.5);
-          transform: rotate(360deg) scale(1.5);
+  -webkit-transform: rotate(360deg) scale(1.2);
+          transform: rotate(360deg) scale(1.2);
 }
 
 .footer-top {
@@ -1412,5 +1467,20 @@ li {
 
 .footer-bottom .col-1 .copyright:hover {
   color: #959595;
+}
+
+@media (min-width: 2100px) {
+  .header-link-left, .header-link-right {
+    opacity: 0 !important;
+  }
+}
+
+@media (max-width: 1230px) {
+  .whatfor-photos img:nth-child(2) {
+    left: -200px;
+  }
+  .whatfor-photos img:nth-child(3) {
+    left: 200px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
